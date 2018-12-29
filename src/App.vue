@@ -1,13 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <v-form ref="form" class="ml-5">
+          <v-text-field label="amount spent"></v-text-field>
+         
+          <v-btn @click="submit">submit</v-btn>
+    </v-form>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    submit() {
+
+    }
+  }
 }
 </script>
 
@@ -19,5 +32,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.v-form {
+  width: 300px;
 }
 </style>
