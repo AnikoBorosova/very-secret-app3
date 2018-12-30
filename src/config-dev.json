@@ -1,0 +1,5 @@
+{
+	"routes": {
+		"backendRoute": "http://localhost:4001"
+	}
+}
