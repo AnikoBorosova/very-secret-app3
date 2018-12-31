@@ -2,7 +2,6 @@
   <div id="app">
     <v-form ref="form" class="ml-5">
           <v-text-field label="amount spent" v-model="amount"></v-text-field>
-         
           <v-btn @click="submit" normal color="#26a69a" v-on:keyup.enter="submit()">submit</v-btn>
     </v-form>
 
@@ -13,12 +12,10 @@
       </li>
     </ul>
 
-
     <div class="total ml-5">
       <p>TOTAL AMOUNT:</p>
       <p>{{ totalAmount }} HUF</p>
     </div>
-    
   </div>
 </template>
 
@@ -73,7 +70,6 @@ export default {
       let deleteAmount = parseInt(amountText);
       this.totalAmount -= deleteAmount;
       this.amounts.splice(index, 1);
-
     }
   }
 }
@@ -87,7 +83,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 .v-form {
   width: 300px;
   text-align: center;
