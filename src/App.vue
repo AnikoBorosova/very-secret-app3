@@ -92,7 +92,7 @@ export default {
   content: "";
   background-color: #000000;
   height: 1px;
-  width: 25vw;
+  width: 300px;
   margin: 3rem auto;
 }
 .total {
@@ -104,7 +104,7 @@ export default {
   content: "";
   background-color: #000000;
   height: 1px;
-  width: 25vw;
+  width: 300px;
   margin: 3rem auto;
 }
 .total p {
