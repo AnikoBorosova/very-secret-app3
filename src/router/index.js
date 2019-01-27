@@ -1,5 +1,7 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
+//import registration from "@components/registration";
+//const registration = require("../components/registration");
 
 Vue.use(Router)
 
@@ -8,6 +10,15 @@ export default new Router({
     {
       path: '/',
       name: ''
-    }
+    },
+    /*
+    {
+    	path: "/registration",
+    	component: registration
+    }/*,
+    {
+    	path: "/registration",
+    	component: registration
+    }*/
   ]
 })

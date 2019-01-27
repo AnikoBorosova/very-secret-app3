@@ -21,7 +21,7 @@
 
 <script>
 const request = require("superagent");
-const config = require("./config-dev.json");
+const config = require("./../../config-dev.json");
 
 export default {
   name: 'App',
