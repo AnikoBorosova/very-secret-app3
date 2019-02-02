@@ -16,7 +16,7 @@
 
 		    <div class="menu">
 		        <span class="menu-icon color-primary" v-on:click="toggleMenu">
-		        	<i class="fas fa-bars fa-2x"></i>
+		        	<i class="fas fa-bars fa-3x"></i>
 		        </span>
 		    </div>
 	    </div>
@@ -77,11 +77,11 @@ export default {
   .header-item {
     display: inline-flex;
     color: #f96167;
-    font-size: 30px;
     justify-content: space-between;
     align-items: center;
   }
   .inner-header-item {
+  	font-size: 30px;
 	padding: 1rem 2rem;
   }
   .inner-header-item:hover {
@@ -89,6 +89,7 @@ export default {
   	color: #fce77d;
   }
   .logo {
+  	font-size: 30px;
   	margin-left: 30px; 
   }
   .menu {
@@ -97,7 +98,7 @@ export default {
   .menu-icon {
   	display: inline-flex;
   	font-size: unset;
-  	padding: 0 2rem; 
+  	padding: 1rem 2rem; 
     cursor: pointer;
   }
   .menu-icon:hover {
@@ -113,8 +114,15 @@ export default {
     padding: 1rem;
     position: absolute;
     right: 2rem;
-    top: 8.75rem;
+    top: 4.5rem;
+    /*transition: all 4s ease-in-out;
+    transform-origin: left top;
+  	transform: scaleY(0);*/
   }
+  /*.menu-icon:active .menu-dropdown {
+    transform: translateY(-2em);
+    transition: all 3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  }*/
   .menu-dropdown-item {
     padding-bottom: 0.5rem;
   }
