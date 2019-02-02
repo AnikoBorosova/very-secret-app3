@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <app-header></app-header>
     <v-form ref="form" class="ml-5">
           <v-text-field label="amount spent" v-model="amount"></v-text-field>
           <v-btn @click="submit" normal color="#26a69a" v-on:keyup.enter="submit()">submit</v-btn>
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import appHeader from "@/components/header";
 const request = require("superagent");
 const config = require("./../../config-dev.json");
 
@@ -31,6 +33,9 @@ export default {
       amounts: [],
       totalAmount: 0
     };
+  },
+  components: {
+    appHeader
   },
   methods: {
     submit() {

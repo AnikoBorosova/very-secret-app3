@@ -1,9 +1,9 @@
 import Vue from "vue";
-//import App from "@/components";
+import App from "@/components/app-main";
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 //import Registration from "@/components/registration";
-import Login from "@/components/login";
+//import Login from "@/components/login";
 
 Vue.use(Vuetify, {
 	theme: {
@@ -13,5 +13,5 @@ Vue.use(Vuetify, {
 });
 
 export default function initApp() {
-	return Login;
+	return App;
 }
