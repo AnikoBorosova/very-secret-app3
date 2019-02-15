@@ -4,9 +4,9 @@
 
     <!-- oooooooooooooooooooooooooooooooo -->
     <div class="spend-input-wrapper">
-      <form action="" placeholder="amount spent">
+      <form action placeholder="amount spent">
         <input type="text" v-model="amount" class="form-item inputfield">
-
+        
         <select name="categories" class="form-item inputfield">
           <option value="Select">Select</option>
           <option value="Flat">Flat</option>
@@ -20,25 +20,16 @@
           <option value="Culture">Culture</option>
           <option value="Sport">Sport</option>
         </select>
-
+        
         <button @click="submit" class="form-item submit-button">SUBMIT</button>
       </form>
     </div>
-    
-
-
-
-
-
-
 
     <!--oooooooooooooooooooooooooooooooooo   -->
     <v-form ref="form" class="ml-5">
-          <v-text-field label="amount spent" v-model="amount"></v-text-field>
-          <v-btn @click="submit" normal color="#26a69a" v-on:keyup.enter="submit()">submit</v-btn>
+      <v-text-field label="amount spent" v-model="amount"></v-text-field>
+      <v-btn @click="submit" normal color="#26a69a" v-on:keyup.enter="submit()">submit</v-btn>
     </v-form>
-
-
 
     <ul class="mt-5 ml-5">
       <li v-for="(amount, index) in amounts">
@@ -73,7 +64,7 @@ export default {
   },
   methods: {
     submit() {
-      debugger;
+      console.log("SUBMIT")
       const expensesUrl = config.routes.backendRoute + "/expenses";
       const userExpenses = this.amount;
 
@@ -82,20 +73,22 @@ export default {
           amountText: this.amount
         });
 
-        request.post(expensesUrl)
-            .withCredentials()
-            .set("Content-Type", "application/json")
-            .send(userExpenses)
-            .end((err, res) => {
+        request.post("http://localhost:4001/expenses")
+          //.withCredentials()
+          .set("Content-Type", "application/json")
+          .send({
+            userExpenses
+          })
+          .end((err, res) => {
 
-              if (err) {
-                console.log(err);
-                return;
-              }
+            if (err) {
+              console.log(err);
+              return;
+            }
 
-              console.log(res.body);
+            console.log(res.body);
 
-            })
+          })
 
         let convertToNum = parseInt(this.amount);
         this.totalAmount += convertToNum;
@@ -105,7 +98,7 @@ export default {
 
       }
     },
-    deleteAmount(index,amountText) {
+    deleteAmount(index, amountText) {
       let deleteAmount = parseInt(amountText);
       this.totalAmount -= deleteAmount;
       this.amounts.splice(index, 1);
