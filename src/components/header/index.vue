@@ -47,14 +47,14 @@ export default {
 				helpCenter: "Help center"
 			},
 			menuOpen: false,
-		}
+		};
 	},
 	methods: {
 		toggleMenu() {
 			this.menuOpen = !this.menuOpen;
 		}
 	}
-}
+};
 </script>
 
 <style>

@@ -57,7 +57,7 @@ const request = require("superagent");
 const config = require("./../../config-dev.json");
 
 export default {
-	name: 'App',
+	name: "App",
 	data() {
 		return {
 			amount: "",
@@ -107,7 +107,7 @@ export default {
 			this.amounts.splice(index, 1);
 		}
 	}
-}
+};
 </script>
 
 <style>

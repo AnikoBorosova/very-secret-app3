@@ -18,7 +18,7 @@ const request = require("superagent");
 const config = require("./../../config-dev.json");
 
 export default {
-	name: 'registration',
+	name: "registration",
 	data() {
 		return {
 			labels: {
