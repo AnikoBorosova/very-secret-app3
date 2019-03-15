@@ -57,7 +57,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 	#appHeader {
 		width: 100%;
 		height: 70px;

@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 	body {
 		background-color: #fce77d;
 		font-family: "Dosis", sans-serif;
