@@ -48,6 +48,8 @@
 			</li>
 		</ul> -->
 
+
+
 	</div>
 </template>
 
@@ -78,8 +80,7 @@ export default {
 					amountText: this.amount
 				});
 
-				/*request.post("http://localhost:4001/expenses")
-					//.withCredentials()
+				request.post("http://localhost:4001/expenses")
 					.set("Content-Type", "application/json")
 					.send({
 						userExpenses
@@ -92,7 +93,7 @@ export default {
 						}
 
 						console.log(res.body);
-					})*/
+					});
 
 				let convertToNum = parseInt(this.amount);
 				this.totalAmount += convertToNum;
@@ -110,7 +111,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 	body {
 		margin: 0; 
 	}

@@ -1,21 +1,20 @@
 import Vue from "vue";
 import Router from "vue-router";
-//import registration from "@components/registration";
-//const registration = require("../components/registration");
+//import login from "@/components/login";
+//import registration from "@/components/registration";
 
 Vue.use(Router);
 
 export default new Router({
 	routes: [
-		{
+		/*{
 			path: "/",
 			name: ""
 		},
-		/*
 		{
-			path: "/registration",
-			component: registration
-		}/*,
+			path: "/login",
+			component: login
+		},
 		{
 			path: "/registration",
 			component: registration
