@@ -40,11 +40,11 @@ export default {
 			password: "",
 			confirmPassword: "",
 
-			duplicateUsername: true,
-			invalidEmail: true,
-			duplicateEmail: true,
-			invalidPassword: true,
-			differentPassword: true
+			duplicateUsername: false,			// USING OF VUEX ??????
+			invalidEmail: false,
+			duplicateEmail: false,
+			invalidPassword: false,
+			differentPassword: false
 		};
 	},
 	methods: {
@@ -54,38 +54,68 @@ export default {
 			const password = this.password;
 			const confirmPassword = this.confirmPassword;
 
+			if (!userName || !email || !password || !confirmPassword) {
+				return;
+			}
+
 			// Check username duplication
+			const isDuplicateUsername = validations.checkDuplicateUsername(password);
+
+			if (isDuplicateUsername) {
+				return this.duplicateUsername = true;
+			}
 
 			// Check if email is valid
-
-			//const emailRegex = '';
-			//const validEmail = email.match(emailRegex);
+			const validEmail = validations.validateEmail(email);
 
 			if (!validEmail) {
-
+				return this.invalidEmail = true;
 			};
 
 			// Check email duplication
+			const isDuplicateEmail = validations.checkDuplicateEmail(email);
+
+			if (isDuplicateEmail) {
+				return this.duplicateEmail = true;
+			}
 
 			// Check if password is valid
+			const validPwd = validations.validatePassword(password);
 
-			// Check is passwords are the same
+			if (!validPwd) {
+				return this.invalidPassword = true;
+			}
 
-			const userData = {
-				userName: userName,
-				email: email,
-				password: password,
-				confirmPassword: confirmPassword
-			};
+			// Check if passwords are the same
+			const matchingPwd = validations.checkPasswordsMatch(password,confirmPassword);
+
+			if (!matchingPwd) {
+				return this.differentPassword = true;
+			}
+
+			let userData = {};
+			//check all criteria
+			if (!isDuplicateUsername && validEmail && !isDuplicateEmail && validPwd && matchingPwd) {
+				userData = {
+					userName: userName,
+					email: email,
+					password: password,
+					confirmPassword: confirmPassword
+				};
+
+				this.duplicateUsername = false;
+				this.invalidEmail = false;
+				this.duplicateEmail = false;
+				this.invalidPassword = false;
+				this.differentPassword = false;
+			}
 
 			const registerUrl = config.routes.backendRoute + "/registration";
 
 			request.post(registerUrl)
 				//.withCredentials()
 				.set("Content-Type", "application/json")
-				.send({
-					userData
-				})
+				.send(userData)
 				.end((err, res) => {
 
 					if (err) {
@@ -93,7 +123,7 @@ export default {
 						return;
 					}
 
-					console.log(res.body);
+					console.log("AAAAAAAAAAAAAAAAAAAA", res.body);
 
 				});
 
